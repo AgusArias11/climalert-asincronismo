@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: climalert-asincronismo
+rest-weather:
+  base-url: http://api.weatherapi.com/v1
+  api-key: "88a9c8396c4d4c9f841152151260307"
