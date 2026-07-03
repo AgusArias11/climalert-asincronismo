@@ -15,7 +15,7 @@ public class ClimaScheduler {
   private final BuscadorDeClima buscadorDeClima;
   private final ClimaRepository climaRepository;
 
-  @Scheduled(fixedRate = 10000) // 300000ms = 5 minutos
+  @Scheduled(fixedRate = 300000) // 300000ms = 5 minutos
   public void obtenerClimaActual(){
     Optional<Clima> climaActual = buscadorDeClima.obtenerClimaActual();
     climaActual.ifPresent(climaRepository::save);
