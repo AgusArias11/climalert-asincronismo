@@ -15,12 +15,16 @@ public class ClimaScheduler {
   private final BuscadorDeClima buscadorDeClima;
   private final ClimaRepository climaRepository;
 
-  @Scheduled(fixedRate = 300000) // 300000ms = 5 minutos
+  @Scheduled(fixedRate = 60000) // 60000 = 1 minuto
   public void obtenerClimaActual(){
     Optional<Clima> climaActual = buscadorDeClima.obtenerClimaActual();
     climaActual.ifPresent(climaRepository::save);
+    /*System.out.println("====================================");
+    System.out.println("ESTOY DENTRO DEL SCHEDULER");
+    System.out.println("====================================");
 
-    /*System.out.println("Clima Actual: " + climaActual.get());
+    climaActual.ifPresent(clima -> System.out.println("Clima Actual: " + clima));
+
     System.out.println("------------------------------------------");
     System.out.println("Climas almacenados" + climaRepository.getAll());
     System.out.println("------------------------------------------");*/
